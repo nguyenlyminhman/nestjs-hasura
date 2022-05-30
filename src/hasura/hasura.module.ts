@@ -10,10 +10,10 @@ import ApolloClient from 'apollo-boost'
       provide: 'HASURA',
       useFactory: async () => {
         const client = new ApolloClient({
-            uri: 'https://legible-leech-54.hasura.app/v1/graphql',
+            uri: process.env.HASURA_GRAPHQL_ENDPOINT,
             fetchOptions: { fetch: fetcher },
             headers: {
-              'x-hasura-admin-secret': '27ZacT9xLkXwGsOBbhVlxVfbZi8FtHLJeTFH6juzVVQO46vORuXraah6B22lg1od'
+              'x-hasura-admin-secret': process.env.HASURA_GRAPHQL_ADMIN_SECRET,
             }
          });
 
